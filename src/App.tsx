@@ -6,7 +6,7 @@ import { Telemetry } from './components/Telemetry';
 import { Vantage } from './components/Vantage';
 import { Footer } from './components/Footer';
 import { ApplicationModal } from './components/ApplicationModal';
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from '@vercel/analytics/react';
 import { useEffect, useState } from 'react';
 
 
