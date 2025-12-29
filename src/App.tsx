@@ -6,7 +6,9 @@ import { Telemetry } from './components/Telemetry';
 import { Vantage } from './components/Vantage';
 import { Footer } from './components/Footer';
 import { ApplicationModal } from './components/ApplicationModal';
+import { Analytics } from "@vercel/analytics/next"
 import { useEffect, useState } from 'react';
+
 
 export default function App() {
   const [scrollY, setScrollY] = useState(0);
@@ -45,6 +47,7 @@ export default function App() {
         <Telemetry />
         <Vantage />
         <Footer />
+        <Analytics />
       </div>
       
       <ApplicationModal />
