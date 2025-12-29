@@ -48,7 +48,7 @@ export function Physics() {
           <div className="col-span-12">
             <h2 className="text-3xl md:text-4xl tracking-tight mb-4">The Physics</h2>
             <p className="text-white/60 font-['JetBrains_Mono'] text-sm md:text-base">
-              CHC Variables — The fundamental architecture of human cognition.
+              CHC Variables — The fundamental architecture of how students learn.
             </p>
           </div>
         </div>

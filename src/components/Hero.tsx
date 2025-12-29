@@ -9,12 +9,12 @@ export function Hero() {
               
               {/* H1: Dominant size to establish visual hierarchy */}
               <h1 className="font-['JetBrains_Mono'] text-5xl md:text-8xl tracking-tighter font-medium leading-[1.1] md:leading-[0.9]">
-                Stop learning <br className="hidden md:block" /> by crashing.
+                The flight simulator <br className="hidden md:block" /> for Teachers.
               </h1>
               
               {/* Sub-headline: Scaled to support the H1 without competing */}
               <p className="font-['JetBrains_Mono'] text-lg md:text-2xl text-white/60 max-w-3xl mx-auto leading-relaxed">
-                Mirror is the first high-fidelity flight simulator for learning. Powered by Cognitive Physics.
+                Mirror is the first high-fidelity Platform where Teachers Practice teaching with AI students before they enter a real classroom. Powered by Cognitive Physics.
               </p>
               
               <div className="pt-4 md:pt-8">
