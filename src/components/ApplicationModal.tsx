@@ -1,9 +1,15 @@
-import { useState, useEffect } from 'react';
-import { X } from 'lucide-react';
+import { useState, useEffect, useRef } from 'react';
+import { X, Loader2 } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 export function ApplicationModal() {
   const [isOpen, setIsOpen] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  
+  // Ref to the form element for EmailJS
+  const form = useRef<HTMLFormElement>(null);
+
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -28,9 +34,26 @@ export function ApplicationModal() {
     }
   }, [isOpen]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setIsSubmitting(true);
+
+    try {
+      // Sending form data to EmailJS using your credentials
+      await emailjs.sendForm(
+        'service_1tjswy9',      // Service ID
+        'template_3ymtqjn',     // Template ID
+        form.current!,          // Form Reference
+        'pKeFltXKMQuCIRxJz'     // Public Key
+      );
+      
+      setSubmitted(true);
+    } catch (error) {
+      console.error('FAILED...', error);
+      alert('Failed to send application. Please check your connection and try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -44,6 +67,7 @@ export function ApplicationModal() {
     setIsOpen(false);
     setTimeout(() => {
       setSubmitted(false);
+      setIsSubmitting(false);
       setFormData({
         firstName: '',
         lastName: '',
@@ -60,6 +84,13 @@ export function ApplicationModal() {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center">
+      {/* Inject missing responsive classes manually */}
+      <style>{`
+        @media (min-width: 768px) {
+          .md\\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+        }
+      `}</style>
+
       {/* Backdrop */}
       <div 
         className="absolute inset-0 bg-black/90 backdrop-blur-sm"
@@ -69,7 +100,7 @@ export function ApplicationModal() {
       {/* Modal */}
       <div className="relative bg-black border border-white/20 max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto">
         {/* Header */}
-        <div className="sticky top-0 bg-black border-b border-white/20 px-8 py-6 flex items-center justify-between">
+        <div className="sticky top-0 bg-black border-b border-white/20 px-8 py-6 flex items-center justify-between z-10">
           <div>
             <h2 className="text-2xl tracking-tight">Founding Cohort Application</h2>
             <p className="text-sm text-white/40 font-['JetBrains_Mono'] mt-1">
@@ -87,9 +118,9 @@ export function ApplicationModal() {
         {/* Content */}
         <div className="p-8">
           {!submitted ? (
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form ref={form} onSubmit={handleSubmit} className="space-y-6">
               {/* Name Fields */}
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <label className="text-xs font-['JetBrains_Mono'] text-white/60 uppercase tracking-wider">
                     First Name *
@@ -134,7 +165,7 @@ export function ApplicationModal() {
               </div>
 
               {/* Country & Phone */}
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <label className="text-xs font-['JetBrains_Mono'] text-white/60 uppercase tracking-wider">
                     Country *
@@ -198,9 +229,17 @@ export function ApplicationModal() {
               <div className="pt-4">
                 <button
                   type="submit"
-                  className="w-full bg-[#D4AF37] text-black px-8 py-4 hover:bg-[#E5C158] transition-colors tracking-wide"
+                  disabled={isSubmitting}
+                  className="w-full bg-[#D4AF37] text-black px-8 py-4 hover:bg-[#E5C158] transition-colors tracking-wide font-bold disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                 >
-                  SUBMIT APPLICATION
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                      SENDING...
+                    </>
+                  ) : (
+                    'SUBMIT APPLICATION'
+                  )}
                 </button>
               </div>
             </form>
