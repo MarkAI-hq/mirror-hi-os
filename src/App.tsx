@@ -8,6 +8,7 @@ import { Footer } from './components/Footer';
 import { ApplicationModal } from './components/ApplicationModal';
 import { Analytics } from '@vercel/analytics/react';
 import { useEffect, useState } from 'react';
+import { SocialProof } from './components/SocialProof';
 
 
 export default function App() {
@@ -43,6 +44,7 @@ export default function App() {
         <Header />
         <Hero />
         <Bridge />
+        <SocialProof />
         <Physics />
         <Telemetry />
         <Vantage />
