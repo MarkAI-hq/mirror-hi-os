@@ -9,6 +9,7 @@ import { ApplicationModal } from './components/ApplicationModal';
 import { Analytics } from '@vercel/analytics/react';
 import { useEffect, useState } from 'react';
 import { SocialProof } from './components/SocialProof';
+import { Protocol } from './components/Protocol';
 
 
 export default function App() {
@@ -48,6 +49,7 @@ export default function App() {
         <Physics />
         <Telemetry />
         <Vantage />
+        <Protocol/>
         <Footer />
         <Analytics />
       </div>
