@@ -90,7 +90,6 @@ export function Protocol() {
 
   return (
     <section id="protocol" className="border-b border-white/10">
-      {/* Inject missing responsive classes manually */}
       <style>{`
         @media (min-width: 768px) {
           .md\\:col-span-3 { grid-column: span 3 !important; }
@@ -128,7 +127,7 @@ export function Protocol() {
           </p>
         </div>
 
-        {/* Info Cards Grid - Mobile: Gap-6 with borders | Desktop: Gap-px with bg-white/10 */}
+        {/* Info Cards Grid */}
         <div className="grid grid-cols-12 gap-6 bg-transparent md:gap-px md:bg-white/10 mb-8 md:mb-16">
           {infoCards.map((card, idx) => (
             <div key={idx} className="col-span-12 md:col-span-6 bg-black p-6 md:p-8 border border-white/10 md:border-0">
@@ -149,9 +148,9 @@ export function Protocol() {
           ))}
         </div>
 
-        {/* Email Capture Form */}
-        <div className="grid grid-cols-12 gap-4 mb-8 md:mb-16">
-          <div className="col-span-12 md:col-span-8 md:col-start-3">
+        {/* Email Capture Form - UPDATED FOR CENTERING */}
+        <div className="flex justify-center w-full mb-8 md:mb-16">
+          <div className="w-full max-w-3xl px-0">
             {!isSubmitted ? (
               <form ref={form} onSubmit={handleDownload} className="space-y-6 md:space-y-8">
                 <div className="flex flex-col sm:flex-row gap-2">
@@ -162,7 +161,7 @@ export function Protocol() {
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="ENTER EMAIL"
                     required
-                    className="flex-1 bg-transparent border border-white/20 px-4 md:px-6 py-3 md:py-4 text-white placeholder:text-white/30 focus:border-[#D4AF37] focus:outline-none font-['JetBrains_Mono'] text-xs md:text-sm"
+                    className="flex-1 bg-transparent border border-white/20 px-4 md:px-6 py-3 md:py-4 text-white placeholder:text-white/30 focus:border-[#D4AF37] focus:outline-none font-['JetBrains_Mono'] text-xs md:text-sm min-w-0"
                   />
                   <button
                     type="submit"
@@ -200,7 +199,6 @@ export function Protocol() {
             Used by teachers in <span className="text-[#D4AF37]">6 countries</span>
           </p>
 
-          {/* Testimonials Grid - Mobile: Gap-6 with borders | Desktop: Gap-px with bg-white/10 */}
           <div className="grid grid-cols-12 gap-6 bg-transparent md:gap-px md:bg-white/10 max-w-4xl mx-auto">
             {testimonials.map((testimonial, idx) => (
               <div key={idx} className="col-span-12 md:col-span-6 bg-black p-6 md:p-8 text-left border border-white/10 md:border-0">
