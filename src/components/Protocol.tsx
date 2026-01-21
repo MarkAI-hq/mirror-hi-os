@@ -216,7 +216,7 @@ export function Protocol() {
         {/* What's Next */}
         <div className="max-w-3xl mx-auto text-center">
           <h3 className=" font-['JetBrains_Mono'] text-base md:text-lg mb-6 text-[#D4AF37]">
-            WHAT'S NEXT
+            WHAT'S NEXT 
           </h3>
           <div className="space-y-4 text-sm md:text-base text-white/80 mb-8">
             <p>
