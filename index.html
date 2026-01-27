@@ -10,26 +10,29 @@
     <meta name="description" content="Mirror Education is an AI-powered teacher training platform that simulates real classroom scenarios. Practice classroom management, handle disruptive behavior, and improve teaching skills with realistic student simulations and real-time AI coaching.">
     <meta name="keywords" content="teacher training, AI teacher simulator, classroom management training, teacher professional development, education technology, edtech, teaching simulation, virtual classroom, AI coaching for teachers, teacher practice platform, student behavior simulation, teaching skills development">
     
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/src/assets/mirrorfav.png" />
+    <!-- Favicons - Must be in /public/ folder -->
+    <link rel="icon" type="image/png" href="/mirrorfav.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     
-    <!-- Canonical URL -->
+    <!-- Canonical URL - UPDATE THIS TO YOUR ACTUAL DOMAIN WHEN DEPLOYED -->
     <link rel="canonical" href="https://www.mirror.education/">
     
-    <!-- Open Graph / Facebook -->
+    <!-- Open Graph / Facebook - Images must be in /public/ folder -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.mirror.education/">
     <meta property="og:title" content="Mirror Education - AI Flight Simulator for Teachers">
     <meta property="og:description" content="Practice teaching in realistic AI-simulated classrooms. Get real-time coaching, manage disruptive behavior, and improve your teaching skills in a safe environment.">
     <meta property="og:image" content="https://www.mirror.education/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta property="og:site_name" content="Mirror Education">
     
-    <!-- Twitter -->
+    <!-- Twitter - Images must be in /public/ folder -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://www.mirror.education/">
     <meta property="twitter:title" content="Mirror Education - AI Flight Simulator for Teachers">
     <meta property="twitter:description" content="Practice teaching in realistic AI-simulated classrooms. Get real-time coaching, manage disruptive behavior, and improve your teaching skills in a safe environment.">
-    <meta property="twitter:image" content="https://www.mirror.education/twitter-image.jpg">
+    <meta property="twitter:image" content="https://www.mirror.education/og-image.jpg">
     
     <!-- Additional Meta Tags for AI Search -->
     <meta name="author" content="Mirror Education">
@@ -56,7 +59,7 @@
       "@graph": [
         {
           "@type": "SoftwareApplication",
-          "@id": "https://www.mirror.education/#software",
+          "@id": "https://www.mirror.education/",
           "name": "Mirror Education",
           "alternateName": "Mirror",
           "description": "AI-powered teacher training platform that simulates realistic classroom scenarios for practicing teaching skills, classroom management, and student engagement strategies.",
@@ -68,7 +71,7 @@
             "price": "0",
             "priceCurrency": "USD",
             "availability": "https://schema.org/InStock",
-            "description": "Join the waitlist for early access"
+            "description": "Join the founding cohort"
           },
           "featureList": [
             "Realistic AI-simulated student behavior",
@@ -82,7 +85,7 @@
             "Live class simulations",
             "Quick 5-minute practice scenarios"
           ],
-          "screenshot": "https://www.mirror.education/screenshots/dashboard.jpg",
+          "screenshot": "https://www.mirror.education/screenshot-dashboard.jpg",
           "creator": {
             "@type": "Organization",
             "name": "Mirror Education"

@@ -31,7 +31,7 @@ export function Hero() {
 
               {/* Teacher Practice and Results Images */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-24">
-                <img src="/src/assets/teacherPractice.png" alt="Teacher Practice" className="w-full h-auto rounded-lg shadow-lg" />
+                <img src="/src/public/teacherPractice.png" alt="Teacher Practice" className="w-full h-auto rounded-lg shadow-lg" />
               </div>
 
             </div>
