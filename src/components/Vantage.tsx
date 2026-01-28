@@ -1,3 +1,5 @@
+import teacherResults from '../assets/teacherResults.png';
+
 export function Vantage() {
   const refractionPoints = [
     { time: '00:42.3', event: 'Cognitive Overload Threshold Exceeded', severity: 'critical' },
@@ -125,7 +127,7 @@ export function Vantage() {
           </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-24">
-          <img src="/src/public/teacherResults.png" alt="Teacher Practice" className="w-full h-auto rounded-lg shadow-lg" />
+          <img src={teacherResults} alt="Teacher Practice" className="w-full h-auto rounded-lg shadow-lg" />
         </div>
       </div>
     </section>
