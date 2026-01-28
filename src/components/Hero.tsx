@@ -1,6 +1,9 @@
-import teacherPracticeImg from '../assets/teacherPractice.png';
+import { useState } from 'react';
+import teacherResults from '../assets/teacherResults.png';
 
 export function Hero() {
+  const [imageLoaded, setImageLoaded] = useState(false);
+
   return (
     <section className="border-b border-white/10 relative overflow-hidden bg-black">
       {/* Increased padding for top and bottom breathing room, mobile optimized */}
@@ -31,9 +34,25 @@ export function Hero() {
                 </button>
               </div>
 
-              {/* Teacher Practice and Results Images */}
+              {/* Teacher Practice Image - Optimized with lazy loading and blur placeholder */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-24">
-                <img src={teacherPracticeImg} alt="Teacher Practice" className="w-full h-auto rounded-lg shadow-lg" />
+                <div className="relative">
+                  {/* Blur placeholder while loading */}
+                  {!imageLoaded && (
+                    <div className="absolute inset-0 bg-white/5 animate-pulse rounded-lg" />
+                  )}
+                  
+                  <img 
+                    src={teacherResults} 
+                    alt="Teacher Practice" 
+                    className={`w-full h-auto rounded-lg shadow-lg transition-opacity duration-500 ${
+                      imageLoaded ? 'opacity-100' : 'opacity-0'
+                    }`}
+                    onLoad={() => setImageLoaded(true)}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
               </div>
 
             </div>
