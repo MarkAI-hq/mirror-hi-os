@@ -14,30 +14,6 @@
         <priority>1.0</priority>
     </url>
     
-    <!-- Science Page (if you have one) -->
-    <url>
-        <loc>https://www.mirror.education/#science</loc>
-        <lastmod>2026-01-27</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <!-- Simulator Page -->
-    <url>
-        <loc>https://www.mirror.education/#simulator</loc>
-        <lastmod>2026-01-27</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
-    </url>
-    
-    <!-- Pricing Page (if you have one) -->
-    <url>
-        <loc>https://www.mirror.education/pricing</loc>
-        <lastmod>2026-01-27</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
-    </url>
-    
     <!-- How It Works / Demo
     <url>
         <loc>https://www.mirror.education/how-it-works</loc>
