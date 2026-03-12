@@ -1000,72 +1000,6 @@
       margin: 0 auto;
     }
     .form-success.show { display: block; }
-
-    /* ── Calendly Modal ────────────────────────────────────────────── */
-    .cal-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      z-index: 999;
-      background: rgba(6,14,36,0.92);
-      backdrop-filter: blur(8px);
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-    }
-    .cal-overlay.open { display: flex; }
-    .cal-modal {
-      background: var(--navy);
-      border: 1px solid rgba(201,168,76,0.25);
-      border-radius: 20px;
-      width: 100%;
-      max-width: 780px;
-      max-height: 90vh;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      box-shadow: 0 40px 120px rgba(0,0,0,0.6);
-    }
-    .cal-modal-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 20px 28px;
-      border-bottom: 1px solid rgba(201,168,76,0.15);
-      flex-shrink: 0;
-    }
-    .cal-modal-header h3 {
-      font-family: 'Lora', Georgia, serif;
-      font-size: 20px;
-      color: var(--white);
-    }
-    .cal-modal-header p {
-      font-size: 13px;
-      color: var(--muted);
-      margin-top: 2px;
-    }
-    .cal-close {
-      background: rgba(255,255,255,0.06);
-      border: none;
-      color: var(--muted);
-      font-size: 20px;
-      width: 36px; height: 36px;
-      border-radius: 50%;
-      cursor: pointer;
-      display: flex; align-items: center; justify-content: center;
-      transition: background 0.2s, color 0.2s;
-      flex-shrink: 0;
-    }
-    .cal-close:hover { background: rgba(255,255,255,0.12); color: var(--white); }
-    .cal-modal-body {
-      flex: 1;
-      overflow-y: auto;
-      padding: 0;
-    }
-    .cal-modal-body .calendly-inline-widget {
-      min-width: 100% !important;
-      width: 100% !important;
-    }
   </style>
 </head>
 <body>
@@ -1097,7 +1031,7 @@
     </h1>
 
     <p class="hero-sub reveal reveal-delay-2">
-      A grade tells you what a student scored. Mirror tells you how they think. Built for schools that want both— mapped to Bloom's Taxonomy. Built for Cambridge schools.
+      Mirror grades handwritten scripts in 60 seconds and builds a cognitive profile for every student — mapped to Bloom's Taxonomy. Built for Cambridge schools.
     </p>
 
     <div class="hero-actions reveal reveal-delay-3">
@@ -1116,11 +1050,11 @@
       </div>
       <div class="hero-stat">
         <span class="val">5,507</span>
-        <span class="lbl">Scripts Marked</span>
+        <span class="lbl">Cambridge schools</span>
       </div>
       <div class="hero-stat">
-        <span class="val">10x</span>
-        <span class="lbl">Faster to Mastery</span>
+        <span class="val">82%</span>
+        <span class="lbl">Gross margin</span>
       </div>
     </div>
   </section>
@@ -1279,19 +1213,19 @@
               </div>
               <div style="display:flex; align-items:center; gap:12px; padding:10px 16px; border-bottom:1px solid rgba(255,255,255,0.04);">
                 <div style="width:28px; height:28px; background:var(--navy3); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:600;">K</div>
-                <span style="flex:1; font-size:13px;">Kansiime Billy</span>
+                <span style="flex:1; font-size:13px;">Kansiime Mercy</span>
                 <span style="font-size:13px; font-weight:600; color:var(--gold);">80%</span>
                 <span style="font-size:10px; padding:2px 8px; border-radius:100px; background:rgba(13,148,136,0.15); color:var(--green);">Excellent</span>
               </div>
               <div style="display:flex; align-items:center; gap:12px; padding:10px 16px; border-bottom:1px solid rgba(255,255,255,0.04);">
                 <div style="width:28px; height:28px; background:var(--navy3); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:600;">T</div>
-                <span style="flex:1; font-size:13px;">Tusiime Alice</span>
+                <span style="flex:1; font-size:13px;">Tusiime Kenneth</span>
                 <span style="font-size:13px; font-weight:600; color:var(--gold);">85%</span>
                 <span style="font-size:10px; padding:2px 8px; border-radius:100px; background:rgba(13,148,136,0.15); color:var(--green);">Excellent</span>
               </div>
               <div style="display:flex; align-items:center; gap:12px; padding:10px 16px;">
                 <div style="width:28px; height:28px; background:var(--navy3); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:600;">D</div>
-                <span style="flex:1; font-size:13px;">Derrick Kalema</span>
+                <span style="flex:1; font-size:13px;">Derrick Kaitana</span>
                 <span style="font-size:13px; font-weight:600; color:var(--gold);">89%</span>
                 <span style="font-size:10px; padding:2px 8px; border-radius:100px; background:rgba(13,148,136,0.15); color:var(--green);">Excellent</span>
               </div>
@@ -1318,7 +1252,7 @@
           <div class="screen-body">
             <div style="margin-bottom:16px;">
               <div style="font-size:13px; color:var(--muted); margin-bottom:4px;">Welcome back</div>
-              <div style="font-family:'Lora',serif; font-size:22px; margin-bottom:16px;">Derrick Kalema</div>
+              <div style="font-family:'Lora',serif; font-size:22px; margin-bottom:16px;">Derrick Kaitana</div>
               <div style="background:var(--navy2); border-radius:12px; padding:20px;">
                 <div style="font-size:12px; color:var(--gold); font-weight:600; margin-bottom:8px;">Your Cognitive Profile</div>
                 <div style="font-family:'Lora',serif; font-size:18px; margin-bottom:4px;">The Energetic Explorer</div>
@@ -1516,35 +1450,18 @@
         <div class="form-success" id="form-success">
           ✓ &nbsp; Thank you — we'll be in touch within 24 hours to set up your pilot.
         </div>
-        <p class="cta-guarantee"><strong>Free 14-day pilot</strong> · Setup in 24 hours · No credit card</p>
+        <p class="cta-guarantee"><strong>Free 14-day pilot</strong> · Setup in 24 hours · No credit card · No lock-in</p>
       </div>
     </div>
   </section>
 
-  <!-- ── Calendly Modal ─────────────────────────────────────────────────── -->
-  <div class="cal-overlay" id="cal-overlay" onclick="closeCal(event)">
-    <div class="cal-modal">
-      <div class="cal-modal-header">
-        <div>
-          <h3>Book your free pilot</h3>
-          <p>20-minute live demo — we'll grade a real assessment from your school.</p>
-        </div>
-        <button class="cal-close" onclick="closeCalModal()">✕</button>
-      </div>
-      <div class="cal-modal-body">
-        <div class="calendly-inline-widget" data-url="https://calendly.com/tusii-ug/mirror" style="min-width:320px;height:700px;"></div>
-      </div>
-    </div>
-  </div>
-  <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-
   <!-- ── Footer ─────────────────────────────────────────────────────────── -->
   <footer>
     <div class="footer-inner">
-      <a href="#" class="footer-logo"><img src="logo.png" alt="Mirror" style: height="150px"><span style="color:var(--gold)"></span></a>
+      <a href="#" class="footer-logo">Mirror <span style="color:var(--gold)">·</span></a>
       <p class="footer-copy">
-        © 2026 MarkAI Labs, Inc. · Dover, DE
-        <a href="mailto:tusii@mirror.education">tusii@mirror.education</a>
+        © 2026 MarkAI Labs, Inc. · Delaware · 
+        <a href="mailto:hello@mirror.education">hello@mirror.education</a>
       </p>
     </div>
   </footer>
@@ -1576,48 +1493,11 @@
       });
     }
 
-    // ── Calendly Modal ───────────────────────────────────────────────
-    function openCalModal() {
-      document.getElementById('cal-overlay').classList.add('open');
-      document.body.style.overflow = 'hidden';
-    }
-    function closeCalModal() {
-      document.getElementById('cal-overlay').classList.remove('open');
-      document.body.style.overflow = '';
-    }
-    function closeCal(e) {
-      if (e.target === document.getElementById('cal-overlay')) closeCalModal();
-    }
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeCalModal(); });
-
-    // Wire all pilot/demo buttons to open Calendly modal
-    document.querySelectorAll('a[href="#cta"], .nav-cta, .btn-primary').forEach(btn => {
-      btn.addEventListener('click', function(e) {
-        e.preventDefault();
-        openCalModal();
-      });
-    });
-
-    // ── EmailJS Form ─────────────────────────────────────────────────
+    // ── Form ─────────────────────────────────────────────────────────
     document.getElementById('pilot-form').addEventListener('submit', function(e) {
       e.preventDefault();
-      const email = this.querySelector('input[type="email"]').value;
-      const btn = this.querySelector('button[type="submit"]');
-      btn.textContent = 'Sending...';
-      btn.disabled = true;
-
-      emailjs.send("service_1tjswy9", "template_yef8f2v", {
-        email: email,
-        name: "Pilot Request",
-        reply_to: email
-      }).then(() => {
-        this.style.display = 'none';
-        document.getElementById('form-success').classList.add('show');
-      }).catch(() => {
-        btn.textContent = 'Book a pilot';
-        btn.disabled = false;
-        alert('Something went wrong — please email tusii@mirror.education directly.');
-      });
+      this.style.display = 'none';
+      document.getElementById('form-success').classList.add('show');
     });
 
     // ── Nav scroll state ─────────────────────────────────────────────
