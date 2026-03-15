@@ -10,12 +10,12 @@
   <meta property="og:url" content="https://mirror.education" />
 
 <!-- Favicon -->
-  <link rel="icon" type="image/png" href="/src/logo.png" />
-  <link rel="apple-touch-icon" href="/src/logo.png" />
+  <link rel="icon" type="image/png" href="src/logo.png" />
+  <link rel="apple-touch-icon" href="src/logo.png" />
  
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="/src/logo.png" />
-  <link rel="apple-touch-icon" href="/src/logo.png" />
+  <link rel="icon" type="image/png" href="src/logo.png" />
+  <link rel="apple-touch-icon" href="src/logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -474,6 +474,111 @@
       border-radius: 100px;
       margin-bottom: 24px;
     }
+
+    /* ── TRY MIRROR — Grading Demo ─────────────────────────────────── */
+    #try {
+      background: var(--navy);
+      position: relative;
+      overflow: hidden;
+    }
+    #try::before {
+      content: '';
+      position: absolute;
+      bottom: -300px; left: 50%;
+      transform: translateX(-50%);
+      width: 800px; height: 600px;
+      background: radial-gradient(ellipse, rgba(201,168,76,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .upload-zone {
+      border: 1.5px dashed rgba(201,168,76,0.5);
+      border-radius: 20px;
+      padding: 64px 40px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.25s;
+      background: rgba(201,168,76,0.03);
+      position: relative;
+    }
+    .upload-zone:hover { border-color: var(--gold); background: rgba(201,168,76,0.07); }
+    .upload-zone.drag-over { border-color: var(--gold); background: rgba(201,168,76,0.1); transform: scale(1.01); }
+    .upload-icon-wrap {
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      background: rgba(201,168,76,0.1);
+      border: 1px solid rgba(201,168,76,0.25);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 24px;
+      transition: background 0.25s, transform 0.25s;
+    }
+    .upload-zone:hover .upload-icon-wrap { background: rgba(201,168,76,0.18); transform: scale(1.08); }
+    .upload-heading { font-family: 'Lora', Georgia, serif; font-size: 28px; font-weight: 600; margin-bottom: 10px; }
+    .upload-sub { font-size: 16px; color: var(--muted); margin-bottom: 32px; line-height: 1.6; }
+    .upload-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--gold); color: var(--dark);
+      font-size: 16px; font-weight: 700;
+      padding: 16px 36px; border-radius: 8px;
+      border: none; cursor: pointer;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 24px rgba(201,168,76,0.3);
+      font-family: 'DM Sans', sans-serif;
+    }
+    .upload-btn:hover { background: var(--gold2); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(201,168,76,0.4); }
+    .upload-hint { margin-top: 16px; font-size: 13px; color: rgba(136,150,176,0.6); }
+    #demo-grading { display: none; text-align: center; padding: 80px 40px; }
+    .timer-wrap { position: relative; width: 120px; height: 120px; margin: 0 auto 32px; }
+    .timer-wrap svg { position: absolute; top: 0; left: 0; }
+    .timer-num { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); font-family: 'Lora', Georgia, serif; font-size: 36px; font-weight: 600; color: var(--white); }
+    .grading-label { font-size: 12px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+    .grading-status { font-size: 16px; color: var(--muted); transition: opacity 0.4s; }
+    #demo-results { display: none; }
+    .results-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+    .result-card { background: var(--dark); border: 1px solid rgba(201,168,76,0.18); border-radius: 16px; padding: 32px; }
+    .result-card-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; }
+    .result-grade { font-family: 'Lora', Georgia, serif; font-size: 64px; color: var(--gold); line-height: 1; }
+    .result-score { font-size: 16px; color: var(--muted); margin-top: 4px; }
+    .result-bar-wrap { margin-top: 20px; background: rgba(255,255,255,0.06); border-radius: 6px; height: 8px; overflow: hidden; }
+    .result-bar { height: 100%; border-radius: 6px; background: var(--gold); width: 0; transition: width 1.2s cubic-bezier(0.4,0,0.2,1); }
+    .result-note { font-size: 13px; color: var(--muted); margin-top: 10px; }
+    .result-speed-num { font-family: 'Lora', Georgia, serif; font-size: 64px; color: var(--white); line-height: 1; }
+    .result-faster { font-size: 14px; color: var(--green); margin-top: 10px; font-weight: 600; }
+    .bloom-gate-card { position: relative; background: var(--dark); border: 1px solid rgba(201,168,76,0.18); border-radius: 16px; overflow: hidden; }
+    .bloom-content { padding: 32px; filter: blur(6px); pointer-events: none; user-select: none; }
+    .bloom-content-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; }
+    .demo-bloom-row { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
+    .demo-bloom-label { font-size: 13px; color: var(--muted); width: 100px; flex-shrink: 0; }
+    .demo-bloom-track { flex: 1; height: 10px; background: rgba(255,255,255,0.05); border-radius: 5px; overflow: hidden; }
+    .demo-bloom-fill { height: 100%; border-radius: 5px; background: var(--gold); }
+    .demo-bloom-pct { font-size: 13px; color: var(--white); font-weight: 600; width: 38px; text-align: right; }
+    .bloom-ai-note { margin-top: 20px; background: rgba(15,31,75,0.6); border-radius: 10px; padding: 16px; font-size: 14px; color: var(--muted); line-height: 1.65; }
+    .bloom-gate {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      background: rgba(6,14,36,0.75);
+      backdrop-filter: blur(3px);
+      border-radius: 16px;
+      padding: 40px; text-align: center;
+    }
+    .gate-lock { width: 64px; height: 64px; border-radius: 50%; background: rgba(201,168,76,0.12); border: 1px solid rgba(201,168,76,0.3); display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; }
+    .gate-heading { font-family: 'Lora', Georgia, serif; font-size: 26px; margin-bottom: 10px; }
+    .gate-sub { font-size: 15px; color: var(--muted); margin-bottom: 32px; line-height: 1.65; max-width: 360px; }
+    .gate-btn {
+      background: var(--gold); color: var(--dark);
+      border: none; border-radius: 10px;
+      padding: 18px 44px; font-size: 17px; font-weight: 700;
+      cursor: pointer; transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+      font-family: 'DM Sans', sans-serif;
+      box-shadow: 0 4px 24px rgba(201,168,76,0.35);
+      display: inline-flex; align-items: center; gap: 10px;
+    }
+    .gate-btn:hover { background: var(--gold2); transform: translateY(-2px); box-shadow: 0 8px 36px rgba(201,168,76,0.45); }
+    .gate-fine { font-size: 13px; color: rgba(136,150,176,0.6); margin-top: 14px; }
+    .demo-retry { text-align: center; margin-top: 24px; }
+    .demo-retry-btn { background: transparent; color: var(--muted); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 10px 26px; font-size: 14px; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: border-color 0.2s, color 0.2s; }
+    .demo-retry-btn:hover { border-color: rgba(201,168,76,0.4); color: var(--white); }
+    @media (max-width: 600px) { .results-grid { grid-template-columns: 1fr; } }
 
     /* ── Platform ──────────────────────────────────────────────────── */
     #platform {
@@ -1072,10 +1177,10 @@
 
   <!-- ── Nav ─────────────────────────────────────────────────────────── -->
   <nav>
-    <a href="#" class="nav-logo">  <img src="/src/logo.png" alt="Mirror" style="height: 150px;"/>
-<span class="dot"></span></a>
+    <a href="#" class="nav-logo"><img src="src/logo.png" alt="Mirror" style="height:40px;"/><span class="dot"></span></a>
     <ul class="nav-links">
       <li><a href="#how">How it works</a></li>
+      <li><a href="#try">Try it live</a></li>
       <li><a href="#platform">Platform</a></li>
       <li><a href="#pricing">Pricing</a></li>
       <li><a href="#cta" class="nav-cta">Book a pilot</a></li>
@@ -1186,6 +1291,107 @@
           <span class="step-tag">Insight</span>
           <h3 class="step-title">Understand</h3>
           <p class="step-body">Annotated scripts, cognitive profiles, class analytics, and error pattern reports — all instantly available to teachers and administrators.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TRY MIRROR — Live Grading Demo ───────────────────────────────── -->
+  <section id="try">
+    <div class="container">
+      <p class="section-eye reveal">Live Demo</p>
+      <div class="gold-rule reveal"></div>
+      <h2 class="section-h2 reveal">See Mirror grade<br/><em style="font-style:italic; color:var(--gold)">your script.</em></h2>
+      <p class="section-sub reveal">Upload any student answer — handwritten or typed. Watch Mirror return a grade and cognitive profile in 59 seconds.</p>
+
+      <div id="demo-upload" class="reveal">
+        <div class="upload-zone" id="upload-zone"
+          onclick="document.getElementById('script-file').click()"
+          ondragover="event.preventDefault(); this.classList.add('drag-over')"
+          ondragleave="this.classList.remove('drag-over')"
+          ondrop="handleDrop(event)">
+          <input type="file" id="script-file" accept="image/*,.pdf" style="display:none" onchange="startGrading(this.files[0])">
+          <div class="upload-icon-wrap">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="17 8 12 3 7 8"/>
+              <line x1="12" y1="3" x2="12" y2="15"/>
+            </svg>
+          </div>
+          <h3 class="upload-heading">Drop a student script here</h3>
+          <p class="upload-sub">Drag and drop any handwritten or typed answer sheet.<br/>Mirror grades it and maps cognition in 59 seconds.</p>
+          <button class="upload-btn" type="button">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+            Choose a file to grade
+          </button>
+          <p class="upload-hint">JPG · PNG · PDF · Any subject · Any handwriting</p>
+        </div>
+      </div>
+
+      <div id="demo-grading">
+        <div class="timer-wrap">
+          <svg width="120" height="120" viewBox="0 0 120 120">
+            <circle cx="60" cy="60" r="52" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="5"/>
+            <circle id="timer-ring" cx="60" cy="60" r="52" fill="none" stroke="var(--gold)" stroke-width="5"
+              stroke-linecap="round" stroke-dasharray="326.7" stroke-dashoffset="326.7"
+              transform="rotate(-90 60 60)" style="transition:stroke-dashoffset 0.08s linear;"/>
+          </svg>
+          <span class="timer-num" id="timer-num">59</span>
+        </div>
+        <p class="grading-label">Grading in progress</p>
+        <p class="grading-status" id="grading-status">Reading handwriting...</p>
+      </div>
+
+      <div id="demo-results">
+        <div class="results-grid">
+          <div class="result-card reveal">
+            <p class="result-card-label">Overall Grade</p>
+            <div class="result-grade">B+</div>
+            <div class="result-score">67 / 80</div>
+            <div class="result-bar-wrap"><div class="result-bar" id="grade-bar"></div></div>
+            <p class="result-note">Above class average · 84th percentile</p>
+          </div>
+          <div class="result-card reveal reveal-delay-1">
+            <p class="result-card-label">Time to grade</p>
+            <div style="display:flex; align-items:baseline; gap:8px;">
+              <div class="result-speed-num">59</div>
+              <span style="font-size:16px; color:var(--muted);">seconds</span>
+            </div>
+            <p class="result-note" style="margin-top:12px;">vs. 8–12 min manual marking</p>
+            <p class="result-faster">↑ 93% faster</p>
+          </div>
+        </div>
+
+        <div class="bloom-gate-card reveal">
+          <div class="bloom-content">
+            <p class="bloom-content-label">Cognitive Profile — Bloom's Taxonomy</p>
+            <div class="demo-bloom-row"><span class="demo-bloom-label">Remembering</span><div class="demo-bloom-track"><div class="demo-bloom-fill" style="width:92%;"></div></div><span class="demo-bloom-pct">92%</span></div>
+            <div class="demo-bloom-row"><span class="demo-bloom-label">Understanding</span><div class="demo-bloom-track"><div class="demo-bloom-fill" style="width:78%;"></div></div><span class="demo-bloom-pct">78%</span></div>
+            <div class="demo-bloom-row"><span class="demo-bloom-label">Applying</span><div class="demo-bloom-track"><div class="demo-bloom-fill" style="width:61%; background:var(--gold2);"></div></div><span class="demo-bloom-pct">61%</span></div>
+            <div class="demo-bloom-row"><span class="demo-bloom-label">Analysing</span><div class="demo-bloom-track"><div class="demo-bloom-fill" style="width:44%; background:var(--gold2);"></div></div><span class="demo-bloom-pct">44%</span></div>
+            <div class="demo-bloom-row"><span class="demo-bloom-label">Evaluating</span><div class="demo-bloom-track"><div class="demo-bloom-fill" style="width:29%; background:var(--red);"></div></div><span class="demo-bloom-pct">29%</span></div>
+            <div class="demo-bloom-row"><span class="demo-bloom-label">Creating</span><div class="demo-bloom-track"><div class="demo-bloom-fill" style="width:12%; background:var(--red);"></div></div><span class="demo-bloom-pct">12%</span></div>
+            <div class="bloom-ai-note">Student demonstrates strong recall and basic comprehension but struggles with higher-order synthesis. Recommend targeted tasks at the <strong>Applying</strong> and <strong>Analysing</strong> levels to unlock deeper cognitive engagement.</div>
+          </div>
+          <div class="bloom-gate">
+            <div class="gate-lock">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+              </svg>
+            </div>
+            <h3 class="gate-heading">Your cognitive profile is ready</h3>
+            <p class="gate-sub">See the full Bloom's breakdown, AI annotations, and personalised learning recommendations — unlock with a free pilot.</p>
+            <button class="gate-btn" onclick="openCalModal()">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              Book a pilot — unlock full results
+            </button>
+            <p class="gate-fine">Free 14-day pilot · No credit card · Setup in 24 hours</p>
+          </div>
+        </div>
+
+        <div class="demo-retry">
+          <button class="demo-retry-btn" onclick="resetDemo()">↩ Try another script</button>
         </div>
       </div>
     </div>
@@ -1541,7 +1747,7 @@
   <!-- ── Footer ─────────────────────────────────────────────────────────── -->
   <footer>
     <div class="footer-inner">
-      <a href="#" class="footer-logo"><img src="/src/logo.png" alt="Mirror" style: height="150px"><span style="color:var(--gold)"></span></a>
+      <a href="#" class="footer-logo"><img src="src/logo.png" alt="Mirror" style="height:36px;"><span style="color:var(--gold)"></span></a>
       <p class="footer-copy">
         © 2026 MarkAI Labs, Inc. · Dover, DE
         <a href="mailto:tusii@mirror.education">tusii@mirror.education</a>
@@ -1597,6 +1803,77 @@
         openCalModal();
       });
     });
+
+    // ── Grading Demo ─────────────────────────────────────────────────
+    function handleDrop(e) {
+      e.preventDefault();
+      document.getElementById('upload-zone').classList.remove('drag-over');
+      const file = e.dataTransfer.files[0];
+      if (file) startGrading(file);
+    }
+
+    function startGrading(file) {
+      if (!file) return;
+      document.getElementById('demo-upload').style.display = 'none';
+      document.getElementById('demo-grading').style.display = 'block';
+
+      const messages = [
+        'Reading handwriting...',
+        'Identifying question structure...',
+        'Matching mark scheme...',
+        'Scoring responses...',
+        'Building cognitive profile...',
+        'Generating annotations...',
+        'Finalising report...'
+      ];
+
+      const circumference = 326.7;
+      const ring = document.getElementById('timer-ring');
+      const numEl = document.getElementById('timer-num');
+      const statusEl = document.getElementById('grading-status');
+      let tick = 0;
+      const totalTicks = 59;
+      let msgIdx = 0;
+
+      const interval = setInterval(() => {
+        tick++;
+        const remaining = totalTicks - tick;
+        numEl.textContent = remaining >= 0 ? remaining : 0;
+        ring.style.strokeDashoffset = circumference * (1 - tick / totalTicks);
+
+        const msgStep = Math.floor(tick / (totalTicks / messages.length));
+        if (msgStep !== msgIdx && msgStep < messages.length) {
+          msgIdx = msgStep;
+          statusEl.style.opacity = '0';
+          setTimeout(() => { statusEl.textContent = messages[msgIdx]; statusEl.style.opacity = '1'; }, 200);
+        }
+
+        if (tick >= totalTicks) {
+          clearInterval(interval);
+          showResults();
+        }
+      }, 50); // 50ms = ~3s demo speed. Change to 1000 for real 59s
+    }
+
+    function showResults() {
+      document.getElementById('demo-grading').style.display = 'none';
+      document.getElementById('demo-results').style.display = 'block';
+      setTimeout(() => { document.getElementById('grade-bar').style.width = '84%'; }, 300);
+      document.querySelectorAll('#demo-results .reveal').forEach(el => {
+        el.classList.remove('visible');
+        setTimeout(() => observer.observe(el), 100);
+      });
+    }
+
+    function resetDemo() {
+      document.getElementById('demo-results').style.display = 'none';
+      document.getElementById('demo-grading').style.display = 'none';
+      document.getElementById('demo-upload').style.display = 'block';
+      document.getElementById('timer-num').textContent = '59';
+      document.getElementById('timer-ring').style.strokeDashoffset = '326.7';
+      document.getElementById('grade-bar').style.width = '0';
+      document.getElementById('script-file').value = '';
+    }
 
     // ── EmailJS Form ─────────────────────────────────────────────────
     document.getElementById('pilot-form').addEventListener('submit', function(e) {
